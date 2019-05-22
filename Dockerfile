@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-RUN apt-get update
+RUN apt-get update && apt-get install python3 python
 
 Run mkdir -p /opt/logs
 Run mkdir -p /opt/code
@@ -11,6 +11,8 @@ COPY log.log /opt/logs/log.log
 
 # dont use port 21 on root, dont be an idiot
 # you can use iptables or ufw to redirct port 42069 to port 21 instead
+
+# or use dockers networking tools to port forward
 Expose 42069
 
 ENTRYPOINT ["bash"]
